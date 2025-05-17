@@ -1,0 +1,438 @@
+:root {
+    --primary-bg: #0A0F23; 
+    --secondary-bg: #1C2541; 
+    --accent-primary: #3B82F6; 
+    --accent-secondary: #5A9BFF; 
+    --text-primary: #F8F9FA; 
+    --text-secondary: #ADB5BD; 
+    --border-color: #3B82F6; 
+    --header-bg: #03071E; 
+    --footer-bg: #03071E; 
+    --input-bg: #0A0F23; 
+    --input-border: #3B82F6;
+    --button-text: #FFFFFF;
+    --danger-color: #dc3545; 
+    --success-color: #28a745; 
+}
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--header-bg);
+    color: var(--text-primary);
+    padding: 1rem 2rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid var(--accent-primary);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem; 
+    
+}
+
+header nav {
+    /* margin-top: 0.5rem; Removed, handled by flex */
+}
+
+header nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 0.75rem; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: var(--text-primary);
+    background-color: var(--accent-primary);
+}
+
+/* Main Content Styles */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+main h2 {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--footer-bg);
+    color: var(--text-secondary);
+    width: 100%;
+    margin-top: 3rem;
+    border-top: 1px solid var(--accent-primary);
+}
+
+/* Event Grid (Home Page) */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background-color: var(--primary-bg); 
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(var(--accent-primary-rgb, 59, 130, 246), 0.3); 
+}
+
+.event-card img {
+    max-width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.event-card h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+}
+
+.event-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    flex-grow: 1;
+    margin-bottom: 0.75rem;
+}
+
+.event-card .price {
+    font-weight: bold;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.event-card .booked-label {
+    background-color: var(--success-color); 
+    color: white;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* Buttons */
+.button, button {
+    display: inline-block;
+    background-color: var(--accent-primary);
+    color: var(--button-text);
+    padding: 0.8rem 1.6rem;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.button:hover, button:hover {
+    background-color: var(--accent-secondary);
+    transform: translateY(-2px);
+}
+
+.button.secondary, button.secondary {
+    background-color: var(--secondary-bg);
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+}
+
+.button.secondary:hover, button.secondary:hover {
+    background-color: var(--accent-primary);
+    color: var(--button-text);
+}
+
+.button.danger, button.danger {
+    background-color: var(--danger-color);
+}
+
+.button.danger:hover, button.danger:hover {
+    background-color: #c82333; /* Darker red */
+}
+
+/* Forms (Login, Register, Admin Event Form) */
+.auth-form, .event-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.auth-form div, .event-form div {
+    margin-bottom: 1.25rem;
+}
+
+.auth-form label, .event-form label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.event-form input[type="text"],
+.event-form input[type="datetime-local"],
+.event-form input[type="number"],
+.event-form input[type="url"],
+.event-form textarea {
+    width: calc(100% - 24px); 
+    padding: 0.8rem;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.auth-form input:focus,
+.event-form input:focus,
+.event-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 5px rgba(var(--accent-primary-rgb, 59, 130, 246), 0.5);
+}
+
+.event-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.auth-form button[type="submit"],
+.event-form button[type="submit"] {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.auth-form p a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.auth-form p a:hover {
+    text-decoration: underline;
+}
+
+/* Event Details Page */
+.event-details-container {
+    padding: 2rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+}
+
+.event-details-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 450px;
+    border: 2px solid var(--border-color);
+}
+
+.event-details-container h2 {
+    text-align: left;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.event-details-container .category {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.event-details-container .price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.event-details-container .venue,
+.event-details-container .date {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.event-details-container .description {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+/* Congratulations Page */
+.congratulations-message {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+}
+
+.congratulations-message h2 {
+    color: var(--accent-primary); 
+    font-size: 2.8rem;
+}
+
+.congratulations-message p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Admin Panel */
+.admin-actions {
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.admin-event-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--primary-bg);
+}
+
+.admin-event-list th, .admin-event-list td {
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
+    text-align: left;
+    color: var(--text-primary);
+}
+
+.admin-event-list th {
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.admin-event-list .actions button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Responsive Design (Basic Example) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        padding: 1rem;
+    }
+    header nav {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav a {
+        margin: 0.5rem 0;
+        width: 80%;
+        text-align: center;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .auth-form, .event-form {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    main h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .button, button {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.4rem;
+    }
+    .event-card h3 {
+        font-size: 1.2rem;
+    }
+    .event-details-container .price {
+        font-size: 1.5rem;
+    }
+    .congratulations-message h2 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+/* Logo Styles */
+.logo-placeholder {
+    /* No specific styles needed here for now, flexbox handles alignment */
+}
+
+.header-logo {
+    height: 60px; /* Increased from 40px to make the logo bigger */
+    width: auto;  /* Maintain aspect ratio */
+    display: block; /* Removes extra space below if image is inline */
+    vertical-align: middle; /* Helps with alignment if container has text */
+}
+
